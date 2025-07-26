@@ -1,0 +1,228 @@
+
+<html>
+<head>
+    <title>Coffee Products</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style> 
+       .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 0px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background:rgba(255,255,255,0.1);
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+           
+    .navbar .nav-links {
+                display: flex;
+                justify-content: flex-end;
+                width: 50%; 
+            }
+            .navbar a {
+                color: whitesmoke;
+                text-align: center;
+                padding: 14px 20px;
+                text-decoration: none;
+                font-size: 13px;
+            }
+            .navbar a:hover {
+                background-color: #6d4c41;
+                color: #ffc107;
+            }
+            .restaurant-info {
+                display: flex; /* Display the restaurant info (name and logo) horizontally */
+             align-items: center; /* Align items vertically */
+    }
+      
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .navbar.active .nav-links {
+        display: flex;
+    }
+
+    .navbar .menu-toggle {
+        display: block;
+        cursor: pointer;
+        color: black;
+        font-size: 1.5em;
+    }
+
+
+@media (min-width: 769px) {
+    .navbar .menu-toggle {
+        display: none;
+    }
+}   /* Add your custom CSS styles here */
+        .product {
+            margin-bottom: 30px;
+        }
+        .product img {
+            max-width: 100%;
+            height: 150px;;
+            width: 250px;
+        }
+        .price {
+    font-size: 18px;
+    color: whitesmoke;
+    margin-bottom: 10px;
+}body{
+    background-image:url(products.jpeg) ;
+    background-size: cover;
+}.container{
+    color: white;
+}   div image{
+            box-shadow: 4px 7px 7px 0px;
+            cursor:pointer;
+transition: 400ms;
+    
+        }
+        div img:hover{
+            filter: none;
+            transform: scale(1.3);
+            background-color: none;
+        }
+    
+    </style>
+</head>
+<body><div class="navbar"> <div class="restaurant-info"></div>
+    <div class="nav-links">
+        <a href="MS.html"><i class="fas fa-home"></i> Home</a>
+        <a href="menu.html"><i class="fas fa-coffee"></i> Menu</a>
+        <a href="service.html"><i class="fas fa-wrench"></i> Services</a>
+        <a href="products.html"><i class="fas fa-shopping-bag"></i> Products</a> <!-- Product Page Icon -->
+        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+        <a href="feedback.html"><i class="fas fa-comment-alt"></i> Feedback</a>
+    </div></div><script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navbar = document.querySelector(".navbar");
+            const menuToggle = document.createElement("div");
+            menuToggle.classList.add("menu-toggle");
+            menuToggle.innerHTML = "&#9776;";
+    
+            menuToggle.addEventListener("click", function() {
+                navbar.classList.toggle("active");
+            });
+    
+            navbar.appendChild(menuToggle);
+        });
+    </script>
+    <li><a href="C:\Users\User\Desktop\UIDeveloper\project6 moonshine expresso\MS.html">HOME</li></a> 
+    <div class="container">
+        <h1 class="text-center my-4">Our Coffee Products</h1>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="product">
+                    <img src="p.jpg" class="img-fluid" alt="Coffee 1">
+                    <h2 class="text-center my-3">Expresso Italiano</h2>
+                    <center>
+                    <p class="price">$10.99</p>
+                          
+                         <a href="order.html" class="btn btn-primary add to cart">Add to cart</a>
+                    <a href="payment.html" class="btn btn-success buy-now-button">Buy Now</a>
+                </center>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="product">
+                    <img src="p9.jpg" class="img-fluid" alt="Coffee 2">
+                    <h2 class="text-center my-3">Brazil</h2>
+                    <center>
+                    <p class="price">$10.99</p>
+
+                    <a href="order.html" class="btn btn-primary add to cart">Add to cart</a>
+                    <a href="payment.html" class="btn btn-success buy-now-button">Buy Now</a>
+                </center>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="product">
+                    <img src="p3.jpg" class="img-fluid" alt="Coffee 3">
+                    <h2 class="text-center my-3">TRVLR</h2>
+                    <center>
+                    <p class="price">$10.99</p>
+            
+                    <a href="order.html" class="btn btn-primary add to cart">Add to cart</a>
+                    <a href="payment.html" class="btn btn-success buy-now-button">Buy Now</a>
+                    </center>
+                 
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="product">
+                    <img src="p4.jpg" class="img-fluid" alt="Coffee 3">
+                    <h2 class="text-center my-3">Rohan Bopanna's</h2>
+                    <center>
+                    <p class="price">$10.99</p>
+                    <a href="order.html" class="btn btn-primary add to cart">Add to cart</a>
+                    <a href="payment.html" class="btn btn-success buy-now-button">Buy Now</a>
+                    </center>
+                </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+            <div class="product">
+                <img src="p5.jpg" class="img-fluid" alt="Coffee 3">
+                <h2 class="text-center my-3">Gayathri Coffee</h2>
+                <center>
+                <p class="price">$10.99</p>
+
+                <a href="order.html" class="btn btn-primary add to cart">Add to cart</a>
+                <a href="payment.html" class="btn btn-success buy-now-button">Buy Now</a>
+                </center>
+            </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="product">
+            <img src="p6.jpg" class="img-fluid" alt="Coffee 3">
+            <h2 class="text-center my-3">Flying squirrel</h2>
+            <center>
+            <p class="price">$10.99</p>
+
+            <a href="order.html" class="btn btn-primary add to cart">Add to cart</a>
+            <a href="payment.html" class="btn btn-success buy-now-button">Buy Now</a>
+            </center>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="product">
+            <img src="p7.jpg" class="img-fluid" alt="Coffee 3">
+            <h2 class="text-center my-3">Nescafe</h2>
+            <center>
+            <p class="price">$10.99</p>
+
+            <a href="order.html" class="btn btn-primary add to cart">Add to cart</a>
+            <a href="payment.html" class="btn btn-success buy-now-button">Buy Now</a>
+            </center>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="product">
+            <img src="p8.jpg" class="img-fluid" alt="Coffee 3">
+            <h2 class="text-center my-3">Instant Arabic Coffee</h2>
+            <center>
+            <p class="price">$10.99</p>
+            <a href="order.html" class="btn btn-primary add to cart">Add to cart</a>
+            <a href="payment.html" class="btn btn-success buy-now-button">Buy Now</a>
+            </center>
+        </div>
+    </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    <title>Glowing Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: none;
+        }
+
+        .login-container {
+            background-color:none;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-container h2 {
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: grey;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid grey;
+            border-radius: 3px;
+            background-color: none;
+            color:lightblue;
+            transition: all 0.3s ease;
+        }
+
+        .login-container input:focus {
+            border-color: rgb(27, 201, 27);
+            box-shadow: 0 0 8px rgb(27, 201, 27);
+            outline: none;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color:none;
+            color: black;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: rgb(16, 241, 16);
+            box-shadow: 0 0 8px rgb(16, 241, 16);
+        }
+
+        .login-container button:focus {
+            outline: none;
+        }
+
+        body {
+            background-image: url(login.jpg);
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="login-container">
+        <h2>Welcome</h2>
+
+        <form name="myform" action="MS.html" onsubmit="return loginValidation(this)">
+            <label for="username">username</label>
+            <input type="text" name="username" autofocus><br>
+            <label for="password">password</label>
+            <input type="password" name="password">
+        <br>
+                <button type="submit">Login</button><br><br>
+                <div class="text-center mt-3">
+                    <a href="forget password.html">Forgot Password?</a> | <a href="signup.html">Sign Up</a>
+                </div>
+            </form>
+    </div>
+    <script>
+        // User Validations
+        function loginValidation() {
+            var uname = document.myform.username.value;
+            var password = document.myform.password.value;
+            if (uname == null || uname == "") {
+                alert("Name cant be blank")
+                return false;
+            } else if (password.length < 6) {
+                alert("Password Must be 6 letters")
+                return false;
+            }
+            return true;
+        }  
+    </SCRIPT>
+
+</body>
+
+</html>

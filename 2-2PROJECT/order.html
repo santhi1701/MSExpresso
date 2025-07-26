@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order Form</title>
+        <style>
+           
+            #contact {
+                max-width: 300px;
+                margin: auto;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(228, 66, 66, 0.1);
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #000;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+            input[type="submit"] {
+                width: 100px;
+                padding: 10px;
+                background-color: aquamarine;
+                color: #000;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            input[type="submit"]:hover {
+                background-color: #7fffd4;
+            }
+            h1 {
+                color: crimson;
+                font-size: 25px;
+                font-style: italic;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+                color: #000;
+            }
+            p {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: medium;
+            }
+           
+        
+            @media (max-width: 600px) {
+                #contact {
+                    max-width: 90%;
+                    padding: 10px;
+                }
+                input[type="submit"] {
+                    width: 100%;
+                }
+            }body{
+                background-image: url(order.jpeg);
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        
+       
+        <center>
+            <form id="contact" action="payment.html" onsubmit="return validateForm()">
+                <h1>Order Now</h1>
+                <p>
+                    <label for="Fullname">Full Name:</label> 
+                    <input type="text" name="uname" id="uname" autofocus required>
+                    <br>
+                    <label for="mobilenumber">Mobile Number:</label>
+                    <input type="tel" name="personal" id="per1" pattern="[0-9]{10}" title="the ten digits number" required>
+                    <br>
+                    <label for="Email">Email:</label>
+                    <input type="email" name="office" id="myofficeid" required>
+                    <br>
+                </p>
+                <input type="submit">
+            </form>
+        </center>
+        <script>
+            function validateForm() {
+                var name = document.getElementById('uname').value;
+                var mobile = document.getElementById('per1').value;
+                var email = document.getElementById('myofficeid').value;
+                
+                if (!name.match(/^[a-zA-Z ]+$/)) {
+                    alert("Full Name must contain only letters and spaces.");
+                    return false;
+                }
+                
+                if (!mobile.match(/^[0-9]{10}$/)) {
+                    alert("Mobile Number must be a 10-digit number.");
+                    return false;
+                }
+                
+                if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                    alert("Invalid Email format.");
+                    return false;
+                }
+                
+                return true;
+            }
+        </script>
+    </body>
+</html>

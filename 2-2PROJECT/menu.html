@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }body {
+    font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+}
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+          .navbar .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            width: 50%; 
+        }
+        .navbar a {
+            color: black;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .navbar a:hover {
+            background-color: #6d4c41;
+            color: #ffc107;
+        }
+        .restaurant-info {
+            display: flex; /* Display the restaurant info (name and logo) horizontally */
+         align-items: center; /* Align items vertically */
+}
+
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Wrapper for menu cards */
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        /* Menu card styling */
+        .menu-card {
+            flex: 1 1 45%;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+        }
+
+        /* Styling for menu sections (Coffee, Tea) */
+        .menu-section {
+            margin-bottom: 20px;
+        }
+
+        .menu-section h2 {
+            border-bottom: 2px solid #d2691e;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            color: #8b4513;
+            font-size: 24px;
+        }
+
+        /* Styling for individual menu items */
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .menu-item .price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Cart styling */
+        .cart {
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Styling for individual cart items */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item p {
+            margin: 0;
+        }
+
+        /* Button styling */
+        button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-color:#f5f5f5;
+            color:#8b4513;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color:mediumaquamarine;
+        }
+
+        /* Icon styling */
+        .fas {
+            margin-right: 5px;
+        }
+        /* Media queries */
+        @media screen and (max-width: 992px) {
+            .menu-card {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-card {
+                max-width: 100%;
+            }
+
+            .cart {
+                max-width: 100%;
+            }
+        }h1{text-align: center;
+        color: #8b4513;}
+        body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-image: url(2.jpg);
+    background-size: cover ;
+}
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        display: none;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .navbar.active .nav-links {
+        display: flex;
+    }
+
+    .navbar .menu-toggle {
+        display: block;
+        cursor: pointer;
+        color: white;
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar .menu-toggle {
+        display: none;
+    }
+}   .order-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }  
+            .order-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color:aqua;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .order-button:hover {
+            background-color:bisque;
+        }
+
+    </style>
+</head>
+<body><div class="navbar"> <div class="restaurant-info"></div>
+    <div class="nav-links">
+        <a href="MS.html"><i class="fas fa-home"></i> Home</a>
+        <a href="menu.html"><i class="fas fa-coffee"></i> Menu</a>
+        <a href="service.html"><i class="fas fa-wrench"></i> Services</a>
+        <a href="products.html"><i class="fas fa-shopping-bag"></i> Products</a> <!-- Product Page Icon -->
+        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+        <a href="feedback.html"><i class="fas fa-comment-alt"></i> Feedback</a>
+    </div></div> <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const navbar = document.querySelector(".navbar");
+        const menuToggle = document.createElement("div");
+        menuToggle.classList.add("menu-toggle");
+        menuToggle.innerHTML = "&#9776;";
+
+        menuToggle.addEventListener("click", function() {
+            navbar.classList.toggle("active");
+        });
+
+        navbar.appendChild(menuToggle);
+    });
+</script>
+    <h1>Menu</h1>
+    <div class="wrapper">
+        <div class="menu-card">
+            <div class="menu-section">
+                <h2>Espresso-Based Drinks:</h2>
+                <div class="menu-item">
+                    <div>
+                        <h3>Espresso</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹100</span>
+                        <button onclick="menu.addToCart('Espresso', 100)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Cappuccino</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹150</span>
+                        <button onclick="menu.addToCart('Cappuccino', 150)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Latte</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹120</span>
+                        <button onclick="menu.addToCart('Latte', 120)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                    <div class="menu-item">
+                        <div>
+                            <h3>Mocha</h3>
+                        </div>
+                        <div>
+                            <span class="price">₹140</span>
+                            <button onclick="menu.addToCart('Latte', 120)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <h3>Americano</h3>
+                        </div>
+                        <div>
+                            <span class="price">₹100</span>
+                            <button onclick="menu.addToCart('Latte', 120)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="menu-card">
+            <div class="menu-section">
+                <h2>Specialty Drinks:</h2>
+                <div class="menu-item">
+                    <div>
+                        <h3>Flat White</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹130</span>
+                        <button onclick="menu.addToCart('Espresso', 100)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Affogato</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹150</span>
+                        <button onclick="menu.addToCart('Cappuccino', 150)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Irish coffee</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹160</span>
+                        <button onclick="menu.addToCart('Latte', 120)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                    <div class="menu-item">
+                        <div>
+                            <h3>Spanish Latte</h3>
+                        </div>
+                        <div>
+                            <span class="price">₹150</span>
+                            <button onclick="menu.addToCart('Latte', 120)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <h3>Turkish Coffee</h3>
+                        </div>
+                        <div>
+                            <span class="price">₹120</span>
+                            <button onclick="menu.addToCart('Latte', 120)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="menu-card">
+            <div class="menu-section">
+                <h2>Cold Brews:</h2>
+                <div class="menu-item">
+                    <div>
+                        <h3>Iced Latte</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹140</span>
+                        <button onclick="menu.addToCart('Espresso', 100)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Cold Brew Float</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹150</span>
+                        <button onclick="menu.addToCart('Cappuccino', 150)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Nitro Cold Brew</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹160</span>
+                        <button onclick="menu.addToCart('Latte', 120)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                    <div class="menu-item">
+                        <div>
+                            <h3>Cold Brew Coffee</h3>
+                        </div>
+                        <div>
+                            <span class="price">₹100</span>
+                            <button onclick="menu.addToCart('Latte', 120)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="menu-card">
+            <div class="menu-section">
+                <h2>Seasonal Specials:</h2>
+                <div class="menu-item">
+                    <div>
+                        <h3>Pumpkin spice Latte(Fall)</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹150</span>
+                        <button onclick="menu.addToCart('Espresso', 100)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Peppermint Mocha(Winter)</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹160</span>
+                        <button onclick="menu.addToCart('Cappuccino', 150)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Iced Matcha Latte(summer)</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹140</span>
+                        <button onclick="menu.addToCart('Latte', 120)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                    <div class="menu-item">
+                        <div>
+                            <h3>Honey Lavender Latte(Spring)</h3>
+                        </div>
+                        <div>
+                            <span class="price">₹150</span>
+                            <button onclick="menu.addToCart('Latte', 120)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="menu-card">
+            <div class="menu-section">
+                <h2>Healthy Options:</h2>
+                <div class="menu-item">
+                    <div>
+                        <h3>Bulletproof Coffee</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹140</span>
+                        <button onclick="menu.addToCart('Espresso', 100)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Match Green Tea Latte</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹130</span>
+                        <button onclick="menu.addToCart('Cappuccino', 150)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Turmeric Latte(Golden Milk)</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹140</span>
+                        <button onclick="menu.addToCart('Latte', 120)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                    <div class="menu-item">
+                        <div>
+                            <h3>chai Latte</h3>
+                        </div>
+                        <div>
+                            <span class="price">₹120</span>
+                            <button onclick="menu.addToCart('Latte', 120)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="menu-card">
+            <div class="menu-section">
+                <h2>Alternative Milk Options:</h2>
+                <div class="menu-item">
+                    <div>
+                        <h3>Oat Milk Latte</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹140</span>
+                        <button onclick="menu.addToCart('Espresso', 100)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Almond Milk mocha</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹150</span>
+                        <button onclick="menu.addToCart('Cappuccino', 150)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Coconut Milk Coffee</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹140</span>
+                        <button onclick="menu.addToCart('Latte', 120)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                    <div class="menu-item">
+                        <div>
+                            <h3>Soy Milk Cappuccino</h3>
+                        </div>
+                        <div>
+                            <span class="price">₹130</span>
+                            <button onclick="menu.addToCart('Latte', 120)">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="menu-card">
+            <div class="menu-section">
+                <h2>Tea</h2>
+                <div class="menu-item">
+                    <div>
+                        <h3>Green Tea</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹80</span>
+                        <button onclick="menu.addToCart('Green Tea', 80)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Black Tea</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹70</span>
+                        <button onclick="menu.addToCart('Black Tea', 70)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <h3>Herbal Tea</h3>
+                    </div>
+                    <div>
+                        <span class="price">₹90</span>
+                        <button onclick="menu.addToCart('Herbal Tea', 90)">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart">
+        <h2>Cart</h2>
+        <div id="cart-items"></div>
+        <p>Total: ₹<span id="total">0.00</span></p>
+        <button onclick="menu.clearCart()">Clear Cart</button>
+    </div>  <div class="order-button-container">
+        <form action="order.html">
+            <button class="order-button" type="submit">Order now</button>
+        </form>
+    </div>
+
+    <script>
+        class Menu {
+            constructor() {
+                this.cart = [];
+            }
+
+            addToCart(item, price) {
+                this.cart.push({ item, price });
+                this.updateCart();
+            }
+
+            removeFromCart(index) {
+                this.cart.splice(index, 1);
+                this.updateCart();
+            }
+
+            clearCart() {
+                this.cart = [];
+                this.updateCart();
+            }
+
+            updateCart() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                cartItemsContainer.innerHTML = '';
+                let total = 0;
+                this.cart.forEach((cartItem, index) => {
+                    const cartItemDiv = document.createElement('div');
+                    cartItemDiv.classList.add('cart-item');
+                    cartItemDiv.innerHTML = `<p>${cartItem.item}</p><p>₹${cartItem.price.toFixed(2)}</p>
+                        <button onclick="menu.removeFromCart(${index})">
+                            <i class="fas fa-times"></i> <!-- Cross icon from Font Awesome -->
+                        </button>`;
+                    cartItemsContainer.appendChild(cartItemDiv);
+                    total += cartItem.price;
+                });
+                document.getElementById('total').innerText = total.toFixed(2);
+            }
+        }
+
+        const menu = new Menu();
+    </script>
+</body>
+</html>
+

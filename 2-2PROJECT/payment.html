@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .payment-form {
+            background-color: none;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .success-message {
+            display: none;
+            text-align: center;
+            color: green;
+            margin-top: 20px;
+        }
+        body{
+            background-image: url(payment.jpg);
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <body background="payment.jpg"></body>
+  
+<div class="payment-form">
+    <h2 class="text-center mb-4">Payment Details</h2>
+    <form id="paymentForm">
+        <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number" required>
+        </div>
+        <div class="form-group">
+            <label for="expiry">Expiry Date</label>
+            <input type="text" class="form-control" id="expiry" placeholder="MM/YY" required>
+        </div>
+        <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" class="form-control" id="cvv" placeholder="CVV" required  >
+        </div>
+        <div class="form-group">
+            <label for="name">Cardholder Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter cardholder name" required>
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="text" class="form-control" id="amount" placeholder="Enter amount"  required>
+        </div>
+        <button type="submit" class="btn btn-info btn-block">Pay Now</button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+        <h3>Payment Successful!</h3>
+        <p>Thank you for your payment.</p>
+        <button><a href="page.html">Done</a></button>
+     </div>
+</div>
+<script>
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Simulating a successful payment
+        setTimeout(function() {
+            document.getElementById('paymentForm').reset();
+            document.getElementById('successMessage').style.display = 'block';
+        }, 2000); // Simulating a delay of 2 seconds
+    });
+</script>
+</body>
+</html>
+
